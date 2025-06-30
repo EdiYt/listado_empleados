@@ -1,1 +1,45 @@
-<p>formulario-empleado works!</p>
+<div class="form-container">
+  <h2>Registro</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Núm. Empleado:</label>
+      <input type="text" [value]="empleado.id" disabled>
+    </div>
+
+    <div class="form-group">
+      <label>Nombre:</label>
+      <input type="text" [(ngModel)]="empleado.nombre" name="nombre" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="empleado.email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label>Teléfono:</label>
+      <input type="text" [(ngModel)]="empleado.telefono" name="telefono" required>
+    </div>
+
+    <div class="form-group">
+      <label>Fecha Nacimiento:</label>
+      <input type="text" [(ngModel)]="empleado.fechaNacimiento" name="fechaNacimiento" placeholder="dd/mm/aa" required>
+    </div>
+
+    <div class="form-group">
+      <label>Género:</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="genero" [(ngModel)]="empleado.genero" value="Masculino" required>
+          Masculino
+        </label>
+        <label>
+          <input type="radio" name="genero" [(ngModel)]="empleado.genero" value="Femenino" required>
+          Femenino
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-add">Agregar</button>
+  </form>
+</div>
