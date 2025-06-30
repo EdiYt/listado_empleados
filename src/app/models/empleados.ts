@@ -3,6 +3,6 @@ export interface Employee {
   nombre: string;
   email: string;
   telefono: string;
-  fecha_cumpleaños: string;
+  fechaNacimiento: string;
   genero: string;
 }
