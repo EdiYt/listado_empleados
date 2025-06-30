@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { FormularioEmpleadoComponent } from './components/formulario-empleado/formulario-empleado.component';
 import { ListaEmpleadoComponent } from './components/lista-empleado/lista-empleado.component';
 import { CommonModule } from '@angular/common';
@@ -9,7 +8,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
     FormularioEmpleadoComponent,
     ListaEmpleadoComponent
   ],
