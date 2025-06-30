@@ -1,11 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Employee } from '../../models/empleados';
+import { EmpleadoService } from '../../services/employee.service';
 
 @Component({
   selector: 'app-lista-empleado',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './lista-empleado.component.html',
-  styleUrl: './lista-empleado.component.css'
+  styleUrls: ['./lista-empleado.component.css']
 })
-export class ListaEmpleadoComponent {
+export class ListaEmpleadoComponent implements OnInit {
+  empleados: Employee[] = [];
 
+  constructor(private empleadoService: EmpleadoService) {}
+
+  ngOnInit(): void {
+    this.cargarEmpleados();
+  }
+
+  cargarEmpleados(): void {
+    this.empleados = this.empleadoService.obtenerEmpleados();
+  }
+
+  eliminarEmpleado(id: number): void {
+    this.empleadoService.eliminarEmpleado(id);
+    this.cargarEmpleados();
+  }
 }
